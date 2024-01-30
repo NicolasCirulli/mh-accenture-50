@@ -1,0 +1,53 @@
+a{
+    padding: 10px;
+    font-weight: 800;
+    text-decoration: none;
+
+    margin-left: 10px;
+
+    color: #4248b3;
+    background-color: white;
+    border: 1px solid #4248b3 ;
+}
+
+nav{
+    margin-top: 30px;
+}
+
+[href="#"]{
+    color: white;
+    background-color: #4248b3;
+}
+
+#tituloPrincipal{
+    font-size: 50px;
+}
+
+
+subtitulos, p{
+    font-family:monospace;
+    font-size: 20px;
+    border: 2px solid #4248b3;
+}
+
+
+
+.sections__animales{
+    background-color: #189f8f;
+    width: 300px;
+} 
+
+.sections__animales img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.footer > p{
+    color: red;
+}
+
+.footer p{
+    text-align: center;
+    font-size: 20px;
+}
