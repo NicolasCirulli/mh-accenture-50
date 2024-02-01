@@ -19,6 +19,11 @@ nav{
     background-color: #4248b3;
 }
 
+a:hover{
+    color: white;
+    background-color: #4248b3;
+}
+
 #tituloPrincipal{
     font-size: 50px;
 }
