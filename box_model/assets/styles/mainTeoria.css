@@ -1,0 +1,59 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    font-size: 62.5%;
+}
+body{
+    background-color: rgb(151, 190, 190);
+}
+
+.contenedor{
+    border: 5px solid blue;
+    padding: 10px;
+    width: 50vw;
+    height: 90vh;
+}
+
+.caja{
+    
+    border: 3px solid red;
+    
+    /* border-bottom: 1px solid red;
+    border-left: 1px solid red; */
+    
+    /*   border-radius: 50%; */
+    
+    width: 50%;
+    
+    height: 15rem;
+
+    font-size: 20px;
+
+
+   /*  padding-top: 20px;
+
+    padding-right: 20px;
+
+    padding-bottom: 20px;
+
+    padding-left: 30px; */
+
+    /* padding: 20px 50px;
+
+    margin: 20px 50px; */
+}
+
+a,p,span{
+    font-size: 30px;
+    background-color: blue;
+    color: white;
+    display: inline-block;
+    width: 15rem;
+    height: 15rem;
+
+}
+
+
