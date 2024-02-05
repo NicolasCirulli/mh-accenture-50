@@ -1,0 +1,34 @@
+
+header{
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav ul{
+    display: flex;
+    gap: 10px;
+}
+
+nav li{
+    list-style: none;
+}
+
+main{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+ul{
+    list-style-type: circle;
+}
+
+ol{
+    list-style-type: lower-latin;
+}

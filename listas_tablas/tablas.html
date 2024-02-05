@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles/main.css">
+    <link rel="stylesheet" href="./assets/styles/tablas.css">
+    <title>Tablas</title>
+</head>
+<body>
+    
+    <div class="layout">
+        <header>
+            <h1>Tablas</h1>
+        </header>
+
+        <main>
+
+            <table>
+               
+                <colgroup>
+                    <col span="3" class="cols_desc">
+                    <col span="2" class="cols_prec">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th rowspan="2">Precio</th>
+                        <th rowspan="2">Cantidad</th>
+                        <th rowspan="2">Descuento</th>
+                        <th colspan="2">Total</th>
+                    </tr>
+                    <tr>
+                        <th>Bruto</th>
+                        <th>Neto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$100</td>
+                        <td>5</td>
+                        <td>10%</td>
+                        <td>$500</td>
+                        <td>$450</td>
+                    </tr>
+                    <tr>
+                        <td>$350</td>
+                        <td>2</td>
+                        <td>10%</td>
+                        <td>$700</td>
+                        <td>$630</td>
+                    </tr>
+                    <tr>
+                        <td>$100</td>
+                        <td>5</td>
+                        <td>10%</td>
+                        <td>$500</td>
+                        <td>$450</td>
+                    </tr>
+                    <tr>
+                        <td>$100</td>
+                        <td>5</td>
+                        <td>10%</td>
+                        <td>$500</td>
+                        <td>$450</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Precio final</td>
+                        <td>$1700</td>
+                        <td>$1530</td>
+                    </tr>
+                </tfoot>
+                <caption>Inventario</caption>
+            </table>
+
+        </main>
+    </div>
+
+</body>
+</html>

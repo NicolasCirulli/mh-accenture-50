@@ -1,0 +1,54 @@
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+table{
+    width: 90%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+table, tr, th, td{
+    border: 1px solid black;
+}
+
+thead, tfoot{
+    background-color: rgb(67, 67, 67);
+    color: white;
+}
+
+tbody, tfoot{
+    text-align: center;
+}
+
+tfoot tr td:nth-child(1){
+    text-align: end;
+}
+
+td{
+    height: 40px;
+    padding-right: 10px;
+}
+
+tbody tr:nth-child(even){
+    background-color: rgb(205, 205, 205);
+}
+
+/* tbody tr:nth-child(odd){
+    background-color: blue;
+} */
+
+.cols_desc{
+    width: 200px;
+}
+
+.cols_prec{
+    width: 100px;
+}
+
+caption{
+    caption-side: bottom;
+    text-align: end;
+    font-style: italic;
+}
