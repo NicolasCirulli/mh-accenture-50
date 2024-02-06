@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formularios</title>
+</head>
+<body>
+    
+    <div class="layout">
+        <form action="./show_data.html" method="get">
+            <!-- input -->
+            <div>
+                <label for="inputNombre">Nombre:</label>
+                <input id="inputNombre" name="nombre" type="text" placeholder="Ej: Nicolás">
+            </div>
+            <label> Apellido
+                <input name="apellido" type="text" placeholder="Ej: Cirulli">
+            </label>
+    
+            <label>Fecha nacimiento
+                <input type="date" name="fnacimiento">
+            </label>
+
+            <label>DNI
+                <input type="number" name="dni">
+            </label>
+    
+            <label> Email
+                <input type="email" name="email" placeholder="email@ejemplo.com">
+            </label>
+
+            <fieldset class="genero">
+                <legend>Genero</legend>
+
+                <label> 
+                    <input type="radio" name="genero" value="femenino">
+                    Femenino
+                </label>
+                <label> 
+                    <input type="radio" name="genero" value="masculino">
+                    Masculino
+                </label>
+                <label> 
+                    <input type="radio" name="genero" value="otro">
+                    Otro
+                </label>
+                <label> 
+                    <input type="radio" name="genero" value="no" checked>
+                    Prefiere no decirlo
+                </label>
+            </fieldset>
+            <!-- checkbox -->
+
+            <fieldset>
+                <legend>Ocupación</legend>
+                <label> Trabajo
+                    <input type="checkbox" name="ocupacion" value="trabajo">
+                </label>
+                <label> Estudiante
+                    <input type="checkbox" name="ocupacion" value="estudiante">
+                </label>
+            </fieldset>
+
+            <label>
+                Acepta los terminos
+                <input type="checkbox" name="terminos">
+            </label>
+
+            <!-- select -->
+
+            <select name="pais">
+                <option selected disabled >Seleccione un país</option>
+                <option value="AR">Argentina</option>
+                <option value="UY">Uruguay</option>
+                <option value="CH">Chile</option>
+                <option value="CO">Colombia</option>
+                <option value="PA">Paraguay</option>
+            </select>
+
+            <!-- textarea -->
+    
+            <textarea name="textarea" id="" cols="30" rows="10"></textarea>
+
+
+            <!-- button -->
+            <button>Enviar</button>
+            <!-- <input type="submit" value="Enviar"> -->
+        </form>
+    </div>
+
+
+</body>
+</html>
