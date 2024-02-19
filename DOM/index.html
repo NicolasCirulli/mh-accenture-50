@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>DOM</title>
+  </head>
+  <body>
+   <div class="w-full min-h-screen flex flex-col">
+    <header>
+        <h1 id="titulo" class="text-2xl text-center p-5">Document Object Model</h1>
+      </header>
+      <main class="grow px-5 flex flex-col gap-5">
+        <p>
+          El Modelo de Objetos del Documento (DOM, por sus siglas en Inglés)
+          conecta páginas web a scripts o lenguajes de programación al representar
+          la estructura de un documento, como el HTML que representa una página
+          web, en la memoria. Por lo general, se refiere a JavaScript, aunque el
+          modelado de documentos HTML, SVG o XML como objetos no forma parte del
+          lenguaje principal de JavaScript.
+        </p>
+        <p>
+          El DOM representa un documento con un árbol lógico. Cada rama del árbol
+          termina en un nodo y cada nodo contiene objetos. Los métodos DOM
+          permiten el acceso programático al árbol. Con ellos, puede cambiar la
+          estructura, el estilo o el contenido del documento.
+        </p>
+      </main>
+      <footer>
+          <p> MH - Accenture - Nicolás Cirulli</p>
+      </footer>
+   </div>
+
+   <script src="./app.js"></script>
+  </body>
+</html>
