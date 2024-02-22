@@ -282,13 +282,3 @@ const grupos = alumnos.reduce( ( acumulado, alumno ) => {
     return acumulado 
 }, {} )
 
-console.log( grupos )
-
-const aux = { nombre: "nico" }
-
-console.log( aux.nombre )
-console.log( aux["nombre"] )
-
-
-
-

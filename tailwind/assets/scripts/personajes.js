@@ -1,131 +1,106 @@
-console.log(personajes);
-
 const main = document.getElementById("contenedor-main");
+const $input = document.getElementById('inputBusqueda')
+const $contenedorCheks = document.getElementById('contenedorChecks')
+
+const tags = personajes.map(personaje => personaje.tags).flat()
+const setTags = new Set(tags)
+const arrayTags = Array.from(setTags)
+const fnReduce = (template, tag) => template + crearCheckbox(tag)
+
+
+imprimirTarjetas(personajes, main)
+$contenedorCheks.innerHTML = arrayTags.reduce(fnReduce, "")
+
+/* detectar el evento */
+$input.addEventListener('input', () => {
+    /* filtrar los personajes por nombre */
+    const personajesFiltradosPorNombre = filtrarPersonajesPorNombre(personajes, $input.value)
+    /* Recuperar los values de los checkboxes que esten checked */
+    const valuesChecked = verifiqueChecked()
+    /*  2- filtrar por tag  */
+    const personajesFiltradosPorTag = filtrarPersonajesPorTag( personajesFiltradosPorNombre , valuesChecked)
+    /* muestro los personajes en la vista*/
+    imprimirTarjetas(personajesFiltradosPorTag, main)
+})
+/* 1- detectar el evento en los checkbox */
+$contenedorCheks.addEventListener('input', () => {
+    /* filtrar los personajes por nombre */
+    const personajesFiltradosPorNombre = filtrarPersonajesPorNombre(personajes, $input.value)
+    /* Recuperar los values de los checkboxes que esten checked */
+    const valuesChecked = verifiqueChecked()
+    /*  2- filtrar por tag  */
+    const personajesFiltradosPorTag = filtrarPersonajesPorTag( personajesFiltradosPorNombre , valuesChecked)
+    /* muestro los personajes en la vista*/
+    imprimirTarjetas(personajesFiltradosPorTag, main)
+
+})
+
+function filtrarPersonajesPorNombre(listaPersonajes, nombre) {
+    return listaPersonajes.filter(personaje => personaje.name.toLowerCase().startsWith(nombre.toLowerCase()))
+}
+
+function filtrarPersonajesPorTag(listaPersonajes, seleccionados) {
+    if( seleccionados.length == 0 ) {
+        return listaPersonajes
+    }else{
+        return listaPersonajes.filter(personaje => seleccionados.some(seleccionado => personaje.tags.includes(seleccionado)))
+    }
+}
+
+function verifiqueChecked() {
+
+    const checkboxes = document.querySelectorAll('[type="checkbox"]')
+    const values = []
+    for (const checkbox of checkboxes) {
+        if (checkbox.checked) {
+            values.push(checkbox.value)
+        }
+    }
+    return values
+}
 
 /* Trabajando con string e innerHTML */
-function crearTarjeta( personaje ) {
-  return `
-    <article class="flex flex-col gap-3 w-10/12 md:w-5/12 xl:w-3/12 rounded border border-blue-700">
-        <img class="w-full" src="${personaje.image}" alt="Imagen de ${personaje.name}">
-        <h2>${personaje.name}</h2>
-        <h3>${personaje.title}</h3>
-        <p>${personaje.blurb}</p>
+function crearTarjeta(personaje) {
+    return `
+    <article class="bg-zinc-200 flex flex-col gap-3 w-11/12 md:w-5/12 xl:w-3/12 rounded-lg shadow-lg pb-2">
+        <img class="w-full h-[350px] xl:h-[500px] rounded-t-lg object-cover object-top" src="${personaje.image}" alt="Imagen de ${personaje.name}">
+        <div class="ps-3 flex flex-col gap-3">
+            <div class="flex items-end gap-3 pe-2 ">
+                <h2 class="font-bold text-3xl grow">${personaje.name}</h2>
+                <span class="italic text-blue-900 underline" >#${personaje.tags[0]} </span>
+                <span class="italic text-blue-900 underline" >#${personaje.tags[1]} </span>
+            </div>
+            <h3 class="text-lg underline">${personaje.title}</h3>
+            <p class="line-clamp-4 italic">${personaje.blurb}</p>
+        </div>
+        <div class="flex gap-5 justify-evenly">
+            <a href="#" class="border border-zinc-800 w-20 text-center py-1 font-semibold rounded hover:bg-zinc-900 hover:text-white hover:border-white"> Detalle </a> 
+            <a href="#" class="border border-zinc-800 w-20 text-center py-1 font-semibold rounded hover:bg-zinc-900 hover:text-white hover:border-white"> Builds </a> 
+        </div>
     </article>
     `;
 }
 
-function imprimirTarjetas( listaPersonajes, elemento ){
+function imprimirTarjetas(listaPersonajes, elemento) {
     let template = ""
     for (const personajeIterado of listaPersonajes) {
-        template += crearTarjeta( personajeIterado )
+        template += crearTarjeta(personajeIterado)
+    }
+    if( listaPersonajes.length == 0 ){
+        template = `<h2 class="font-semibold text-white text-2xl"> No hay personajes con los filtros aplicados </h2>`
     }
     elemento.innerHTML = template
 }
-
-/* imprimirTarjetas( personajes, main ) */
-
-
-
-/* 
-
-    <article class="flex flex-col gap-3 w-10/12 md:w-5/12 xl:w-3/12 rounded border border-blue-700">
-        <img class="w-full" src="${personaje.image}" alt="Imagen de ${personaje.name}">
-        <h2>${personaje.name}</h2>
-        <h3>${personaje.title}</h3>
-        <p>${personaje.blurb}</p>
-    </article>
-
-*/
-/* Trabajando con nodos */
-function createCard( champion ){
-    /* Creo el nodo <article> */
-    /* document.createElement( elemento ) */
-    const article = document.createElement( 'article' )
-    /* Le agrego las clases */
-    article.className = "flex flex-col gap-3 w-10/12 md:w-5/12 xl:w-3/12 rounded border border-blue-700"
-   
-    /* Agrego id */
-    article.setAttribute( "id", "key"+champion.key )
-    
-    /* Creo el nodo <img> */
-    const img = document.createElement( "img" )
-    /* Agrego clase a el nodo img */
-    img.className = "w-full" 
-
-    /* Agrego atributo src a la imagen */
-    /* setAttribute */
-    img.setAttribute( "src", champion.image )
-
-    /* Agrego atributo alt */
-    const alt = `Imagen de ${champion.name}`
-    img.setAttribute( "alt", alt )
-
-    /* element.appendChild para agregar el nodo img como hijo al nodo article */
-    article.appendChild( img )    
-
-    const h2 = document.createElement('h2')
-    h2.textContent = champion.name
-
-    h2.classList.add( "font-bold", "text-3xl" )
-
-    const h3 = document.createElement('h3')
-    h3.textContent = champion.title
-
-
-    const p = document.createElement( 'p' )
-    p.textContent = champion.blurb
-
-   /* Agregando uno a uno
-   article.appendChild( h2 )
-   article.appendChild( h3 )
-   article.appendChild( p )
-    */
-
-    /* element.append me permite agregar varios a la vez */
-    article.append( h2, h3, p )
-
-    return article
-} 
-
-
-function renderCards( championsList , element, fn ){
-    /* Recorro la lista de personajes */
-
-    const fragment = document.createDocumentFragment()
-    for (const iterator of championsList) {
-        /* Ejecuto la funcion que crear el nodo */
-        const newArticle = fn( iterator ) 
-        /* Agrego el nodo al elemento */
-        fragment.appendChild( newArticle )
-    }
-    element.appendChild( fragment )
-
+function crearCheckbox(tag) {
+    return `<label>${tag}
+                <input type="checkbox" name="tag" value="${tag}">
+            </label>`
 }
 
-renderCards( personajes, main, createCard )
 
 
-function buscarKeyCampeon( listaCampeones, nombreABuscar ){
-
-    for (const campeon of listaCampeones) {
-        if( campeon.name == nombreABuscar ){
-            return campeon.key
-        }
-    }
-
-    return null
-
-}
-const idAkali = "key"+buscarKeyCampeon(personajes , "Akali" )
 
 
-const articles = document.querySelectorAll('article:nth-child(even)')
-const articles2 = document.querySelectorAll('article:nth-child(odd)')
 
-for (const article of articles) {
-    article.classList.add( "bg-blue-800", "text-white" )
-}
 
-for (const article of articles2) {
-    article.classList.add( "bg-red-800", "text-white" )
-}
+
