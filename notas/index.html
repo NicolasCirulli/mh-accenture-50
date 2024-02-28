@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+    <title>Notas</title>
+</head>
+<body>
+    
+    <div class="w-full min-h-screen bg-zinc-800 flex flex-col text-white">
+        <header class="py-5 flex justify-center flex-col items-center gap-5">
+            <h2 class="text-3xl text-center">Crear una tarea</h2>
+            <form class="bg-white w-3/4 max-w-[500px] p-5 text-black flex flex-col rounded" >
+                <label class="text-lg"> Titulo: 
+                    <input class="ms-2 border-b border-zinc-900 outline-none" type="text" name="titulo" id="formTitulo">
+                </label>
+                <label class="text-lg"> Descripcion: 
+                    <input class="ms-2 border-b border-zinc-900 outline-none" type="text" name="descripcion" id="formDescripcion">
+                </label>
+                <label> Fecha limite:
+                    <input class="ms-2" type="date" name="fechalimite" id="formFecha">
+                </label>
+               <label class="text-lg"> Prioridad:
+                <select name="prioridad" id="formPrioridad">
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+                </select>
+               </label>
+               <button class="border border-zinc-800 w-fit px-3 py-2 self-center">Crear nota</button>
+            </form>
+        </header>
+        <main class="grow flex flex-col items-center gap-5">
+            <h1 class="text-4xl text-center font-semibold w-full" >Tareas</h1>
+            <search>
+                <label for="selectOrden">Prioridad:</label>
+                <select name="orden" id="selectOrden" class="text-blue-900">
+                    <option value="Ascendente">Ascendente</option>
+                    <option value="Descendente">Descendente</option>
+                </select>
+            </search>
+            <div class="w-full flex justify-center flex-wrap gap-5" id="contenedorTareas">
+
+            
+            </div>
+            
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./scripts/app.js"></script>
+</body>
+</html>
